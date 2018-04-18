@@ -1,0 +1,47 @@
+html  
+  head
+    include includes/head.pug
+    link(href="../public/styles/login.css" rel="stylesheet")
+  body(class="text-center")
+    form(
+      class="form-signin" 
+      method="post" 
+      action="/auth/signup"
+    )
+      h1(class="h3 mb-3 font-weight-normal") Music Store
+      if errors
+        each error in errors
+          p *#{error}
+      label(for="inputEmail" class="sr-only") Email address
+      input(
+        type="email" 
+        id="inputEmail" 
+        name="username" 
+        class="form-control" 
+        placeholder="Email address" 
+        required autofocus
+        value=username
+      )
+      label(for="inputPassword" class="sr-only") Password
+      input(
+        type="password" 
+        id="inputPassword" 
+        name="password" 
+        class="form-control" 
+        placeholder="Password" 
+        required
+        value=password
+      )
+      label(for="inputPassword" class="sr-only") Reenter Password
+      input(
+        type="password" 
+        id="inputPassword" 
+        name="password2" 
+        class="form-control" 
+        placeholder="Reenter Password" 
+        required
+        value=password
+      )
+      button(class="btn btn-lg btn-primary btn-block" type="submit") Signup
+      a(href="/auth/login") already a user?
+  include includes/required_files.pug

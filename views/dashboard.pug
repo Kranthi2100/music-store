@@ -1,0 +1,23 @@
+html
+  head
+    include includes/head.pug
+    link(href="../public/styles/private.css" rel="stylesheet")
+    script(src="../public/scripts/dashboard.js")
+  body(
+    onload = `init(${bag})`
+  )
+    include includes/header.pug
+    div.container
+      div.card-deck.mb-3.text-center
+        each record in records  
+          div.card.mb-4.box-shadow
+            div.card-header 
+              h4.my-0.font-weight-normal #{record.album}
+            img(src=record.image)
+            div.card-body
+              p Rs.#{record.price}/-
+              button.btn.btn-lg.btn-block.btn-outline-primary(
+               id = record._id
+               onclick = 'addToCart(this)'  
+              ) add 
+  include includes/required_files.pug
