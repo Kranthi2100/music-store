@@ -1,9 +1,16 @@
 nav.navbar.navbar-expand-lg.navbar-light.bg-light(style="margin-bottom:50px")
   a.navbar-brand(href="/store/dashboard") Music Store
-  ul.nav.ml-auto
-    li.nav-item
-      a.nav-link(href="/store/dashboard") Dashboard
-    li.nav-item
-      a.nav-link(href="/store/bag") Bag
-    li.nav-item
-      a.nav-link(href="/auth/logout") Logout
+  button.navbar-toggler(
+    type="button" 
+    data-toggle="collapse" 
+    data-target="#navbarSupportedContent" 
+  )
+    span.navbar-toggler-icon
+  .collapse.navbar-collapse#navbarSupportedContent
+    ul.navbar-nav.ml-auto
+      li.nav-item
+        a.nav-link(href="/store/dashboard") Dashboard
+      li.nav-item
+        a.nav-link(href="/store/bag") Bag
+      li.nav-item
+        a.nav-link(href="/auth/logout") Logout
