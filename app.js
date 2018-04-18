@@ -10,7 +10,7 @@ const apiRoute = require('./routes/api');
 
 const app = express();
 
-const mongoURL = 'mongodb://admin:musicguru@ds239439.mlab.com:39439/music_store';
+const mongoURL = process.env.MONGO_URL;
 mongoose.connect(mongoURL);
 
 
@@ -20,7 +20,7 @@ app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
 app.use(cookieSession({
   name: 'session',
-  keys: ["jsdhfkshddskdsf"],
+  keys: [process.env.COOKIE_KEY],
   maxAge: 24 * 60 * 60 * 1000 // 24 hours
 }));
 
@@ -28,7 +28,10 @@ app.use('/auth', publicRoute);
 app.use('/store', privateRoute);
 app.use('/api', apiRoute);
 
+app.get('/', (req, res) => {
+  res.redirect('/auth/login')
+})
 
-app.listen(3001, () => {
+app.listen(process.env.PORT, () => {
   console.log('server is now running!');
 })
