@@ -11,6 +11,30 @@ const checkAuth = function (req, res, next) {
   }
 }
 
+route.get('/bag', checkAuth, (req, res) => {
+  User.findById(req.session.user._id)
+    .then(user => {
+      res.status(200);
+      res.send({ result: { bag: user.bag } });
+    })
+    .catch(err => {
+      res.status(400);
+      res.send('error');
+    })
+})
+
+route.get('/records', checkAuth, (req, res) => {
+  Records.find({})
+    .then(records => {
+      res.status(200);
+      res.send({ result: { records: records } });
+    }).catch(err => {
+      res.status(400);
+      res.send('error');
+    })
+})
+
+
 route.get('/add_to_cart/:id', checkAuth, (req, res) => {
   Records.findById(req.params.id).then(record => {
     User.update(

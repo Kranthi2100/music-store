@@ -3,6 +3,7 @@ const path = require('path')
 const mongoose = require('mongoose');
 const bp = require('body-parser');
 const cookieSession = require('cookie-session')
+require('dotenv').config()
 
 const privateRoute = require('./routes/private-routes');
 const publicRoute = require('./routes/public-routes');
@@ -32,6 +33,6 @@ app.get('/', (req, res) => {
   res.redirect('/auth/login')
 })
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 80, () => {
   console.log('server is now running!');
 })
