@@ -15,7 +15,7 @@ const mongoURL = process.env.MONGO_URL;
 mongoose.connect(mongoURL);
 
 
-app.set('view engine', 'pug');
+app.set('view engine', 'jade');
 app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));

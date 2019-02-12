@@ -1,10 +1,10 @@
 html
   head
-    include includes/head.pug
+    include includes/head.jade
     link(href="../public/styles/private.css" rel="stylesheet")
     script(src="../public/scripts/checkout.js")
   body
-    include includes/header.pug
+    include includes/header.jade
     .container
       table.table.table-striped(
         style="margin-bottom: 150px;"
@@ -31,4 +31,4 @@ html
         button.btn.btn-lg.btn-block.btn-success(
           onclick='deliverItems()'
         ) Checkout
-  include includes/required_files.pug
+  include includes/required_files.jade

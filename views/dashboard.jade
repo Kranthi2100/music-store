@@ -1,6 +1,6 @@
 html
   head
-    include includes/head.pug
+    include includes/head.jade
     link(href="../public/styles/private.css" rel="stylesheet")
     script(src="../public/scripts/dashboard.js")
   body(
@@ -20,4 +20,4 @@ html
                id = record._id
                onclick = 'addToCart(this)'  
               ) add 
-  include includes/required_files.pug
+  include includes/required_files.jade
