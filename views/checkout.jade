@@ -9,7 +9,7 @@ html
       table.table.table-striped(
         style="margin-bottom: 150px;"
       )
-        thead 
+        thead
           tr  
             th(scope="row") #
             th(scope="row") album
@@ -17,16 +17,16 @@ html
             th(scope="row") ~
         tbody
           if bag.length == 0
-           tr 
-            td(colspan=4)  Bag Empty!!!
+            tr 
+              td(colspan=4)  Bag Empty!!!
           else
             each item, index in bag 
               tr
                 th(scope="row") #{index+1}
-                td #{item.album}
-                td #{item.price}
-                td 
-                  a(href=`/api/delete/${item._id}`) delete
+                  td #{item.album}
+                  td #{item.price}
+                  td 
+                    a(href='/api/delete/' + item._id) delete
       if bag.length > 0
         button.btn.btn-lg.btn-block.btn-success(
           onclick='deliverItems()'
